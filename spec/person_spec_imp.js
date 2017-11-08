@@ -12,5 +12,15 @@ describe("Person", function() {
   it('should have height of 70', function() {
     expect(person.height_imp).toEqual(70);
   });
-  
+
+  it("should calculate BMI value", function() {
+    person.calculate_bmi_imp();
+    expect(person.bmiValue_imp).toEqual();
+  });
+
+  it('should have a BMI Message "Overweight"', function() {
+    person.calculate_bmi_imp();
+    expect(person.bmiMessage_imp).toEqual("Overweight");
+  });
+
 });

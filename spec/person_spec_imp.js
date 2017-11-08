@@ -5,7 +5,7 @@ describe("Person", function() {
     person = new Person({weight_imp: 195, height_imp: 70});
   });
 
-  it('should have weight of 198', function() {
+  it('should have weight of 195', function() {
     expect(person.weight_imp).toEqual(195);
   });
 

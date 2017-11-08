@@ -23,11 +23,4 @@ describe("Person", function() {
     expect(person.bmiMessage).toEqual("Overweight")
   });
 
-  it("should have weight of 198", function() {
-    expect(person.weight_imp).toEqual(198);
   });
-
-  it('should have height of 70', function() {
-    expect(person.height_imp).toEqual(70)
-  });
-});

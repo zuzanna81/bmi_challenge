@@ -11,6 +11,6 @@ Person.prototype.calculate_bmi = function() {
 };
 
 Person.prototype.calculate_bmi_imp = function() {
-  calculator = new BMICalculator();
+  calculator = new BMICalculator_imp();
   calculator.imperial_bmi(this);
 };

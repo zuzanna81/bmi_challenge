@@ -8,7 +8,7 @@ Person.prototype.calculate_bmi = function() {
   calculator.metric_bmi(this);
 };
 
-Person.prototype.calculate_bmi_imp = function() {
-  calculator = new BMICalculator_imp();
-  calculator.imperial_bmi(this);
+Person.prototype.imperial_bmi = function() {
+  imp_calculate = new BMICalculator();
+  imp_calculate.imperial_bmi(this);
 };

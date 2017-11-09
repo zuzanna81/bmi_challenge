@@ -10,6 +10,7 @@
 
   </head>
   <body>
+
     <form>
       <input type="text" id="weight" placeholder="Weight">
       <input type="text" id="height" placeholder="Height">
@@ -33,6 +34,33 @@
         });
       });
     </script>
+
+
+
+    <form>
+      <input type="text" id="imp_weight" placeholder="Weight">
+      <input type="text" id="imp_height" placeholder="Height">
+      <input type="button" id="imp_calculate" value="Calculate">
+    </form>
+    <div>
+      <span id="display_value"></span>
+      <span id="display_message"></span>
+
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#imp_calculate').click(function () {
+          var w = parseFloat($('#imp_weight').val());
+          var h = parseFloat($('#imp_height').val());
+          var person = new Person({weight: w, height: h});
+          person.imperial_bmi();
+          $('#display_value').html('Your BMI is ' + person.bmiValue);
+          $('#display_message').html('and you are ' + person.bmiMessage);
+        });
+      });
+    </script>
+
 
 
   </body>

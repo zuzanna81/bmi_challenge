@@ -1,36 +1,27 @@
 function BMICalculator_imp(){
 };
 
-BMICalculator_imp.prototype.imperial_bmi = function(obj) {
-  var weight_imp = obj.weight_imp;
-  var height_imp = obj.height_imp;
-  if (weight_imp > 0 && height_imp > 0) {
-    var finalBmi_imp = (weight_imp * 703) / (height_imp * height_imp);
-    obj.bmiValue_imp = parseFloat(finalBmi_imp.toFixed(2));
+BMICalculator.prototype.imperial_bmi = function(obj) {
+  var weight = obj.weight;
+  var height = obj.height;
+  if (weight > 0 && height > 0) {
+    var finalBmi = (weight * 703) / (height * height);
+    obj.bmiValue = parseFloat(finalBmi.toFixed(2));
   }
+  setBMIMessage(obj);
 };
 
-function setBMIMessage_imp (obj){
-  if (obj.bmiValue_imp < 18.5) {
-    obj.bmiMessage_imp = "Underweight"
+function setBMIMessage (obj){
+  if (obj.bmiValue < 18.5) {
+    obj.bmiMessage = "Underweight"
   }
-  if (obj.bmiValue_imp > 18.5 && obj.bmiValue_imp < 25) {
-    obj.bmiMessage_imp = "Normal"
+  if (obj.bmiValue > 18.5 && obj.bmiValue < 25) {
+    obj.bmiMessage = "Normal"
   }
-  if (obj.bmiValue_imp > 25 && obj.bmiValue_imp < 30) {
-    obj.bmiMessage_imp = "Overweight"
+  if (obj.bmiValue > 25 && obj.bmiValue < 30) {
+    obj.bmiMessage = "Overweight"
   }
-  if (obj.bmiValue_imp> 30) {
-    obj.bmiMessage_imp = "Obese"
+  if (obj.bmiValue > 30) {
+    obj.bmiMessage = "Obese"
   }
 }
-
-BMICalculator_imp.prototype.imperial_bmi = function(obj) {
-  var weight_imp = obj.weight_imp;
-  var height_imp = obj.height_imp;
-  if (weight_imp > 0 && height_imp > 0) {
-    var finalBmi_imp = (weight * 703) / (height_imp * height_imp);
-    obj.bmiValue_imp = parseFloat(finalBmi_imp.toFixed(2));
-    setBMIMessage_imp(obj)
-  }
-};

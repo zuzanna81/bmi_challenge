@@ -3,13 +3,13 @@ describe("BMICalculator_imp", function() {
   var person;
 
   beforeEach(function() {
-    person = new Person({weight_imp: 70, height_imp: 195});
-    calculator = new BMICalculator_imp();
+    person = new Person({weight: 195, height: 70});
+    calculator = new BMICalculator();
   });
 
   it("calculates BMI for a person using imperial method", function() {
-  calculator.imperial_bmi(person);
-  expect(person.bmiValue_imp).toEqual(28);
+    calculator.imperial_bmi(person);
+    expect(person.bmiValue).toEqual(27.98);
   });
 
 });

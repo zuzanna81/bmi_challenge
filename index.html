@@ -6,69 +6,40 @@
     <script src="src/person.js"></script>
     <script src="src/bmi_calculator.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-
   </head>
   <body>
-    <h1> Choose your calculation method </h1>
-    <!-- <label class="container">Metric
-      <input type="radio" checked="checked" name="radio">
-      <span class="checkmark"></span>
-    </label> -->
-
-    <form>
-      <input type="text" id="weight" placeholder="Weight (kg)">
-      <input type="text" id="height" placeholder="Height (cm)">
+    <h1> Welcome to the BMI Calculator! </h1>
+    <h3> Choose the calculation method </h3>
+    <form id="myform">
+      <input type="radio" checked="checked" value="Metric" name="radio">Metric
+      <input type="radio" name="radio" value="Imperial">Imperial
+      <input type="text" id="weight" placeholder="Weight">
+      <input type="text" id="height" placeholder="Height">
       <input type="button" id="calculate" value="Calculate">
     </form>
     <div>
       <span id="display_value"></span>
       <span id="display_message"></span>
-
     </div>
-
     <script type="text/javascript">
       $(document).ready(function () {
+        $(document).on("change","input[type=radio]",function(){
+            $('#weight').val('');
+            $('#height').val('');
+        })
         $('#calculate').click(function () {
           var w = parseFloat($('#weight').val());
           var h = parseFloat($('#height').val());
           var person = new Person({weight: w, height: h});
-          person.calculate_bmi();
+          var selectedRadio = $("#myform input[type='radio']:checked").val();
+          if (selectedRadio == 'Imperial')
+            person.imperial_bmi();
+          else
+            person.calculate_bmi();
           $('#display_value').html('Your BMI is ' + person.bmiValue);
-          $('#display_message').html('and you are ' + person.bmiMessage);
-        });
-      });
+          $('#display_message').html('and your BMI status is ' + person.bmiMessage);
+        })
+      })
     </script>
-
-
-    <!-- <label class="container">Imperial
-      <input type="radio" name="radio">
-      <span class="checkmark"></span>
-    </label> -->
-    <form>
-      <input type="text" id="imp_weight" placeholder="Weight (pounds)">
-      <input type="text" id="imp_height" placeholder="Height (inches)">
-      <input type="button" id="imp_calculate" value="Calculate">
-    </form>
-    <div>
-      <span id="display_value"></span>
-      <span id="display_message"></span>
-
-    </div>
-
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#imp_calculate').click(function () {
-          var w = parseFloat($('#imp_weight').val());
-          var h = parseFloat($('#imp_height').val());
-          var person = new Person({weight: w, height: h});
-          person.imperial_bmi();
-          $('#display_value').html('Your BMI is ' + person.bmiValue);
-          $('#display_message').html('and you are ' + person.bmiMessage);
-        });
-      });
-    </script>
-
-
-
   </body>
 </html>
